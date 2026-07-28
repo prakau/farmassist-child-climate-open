@@ -1,13 +1,16 @@
 import os
 from collections.abc import Generator
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy import DateTime, Float, String, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
+from sqlalchemy.pool import StaticPool
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./farmassist.db")
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
+    DATABASE_URL,
+    connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {},
+    poolclass=StaticPool if DATABASE_URL == "sqlite://" else None,
 )
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
@@ -33,7 +36,7 @@ class ObservationRecord(Base):
     approximate_region: Mapped[str | None] = mapped_column(String(80))
     notes: Mapped[str | None] = mapped_column(String(280))
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
     )
 
 

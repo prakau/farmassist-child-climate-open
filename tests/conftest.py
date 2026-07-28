@@ -1,12 +1,10 @@
 import os
 from collections.abc import Generator
-from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
 
-TEST_DB = Path(__file__).with_name("test.db")
-os.environ["DATABASE_URL"] = f"sqlite:///{TEST_DB}"
+os.environ["DATABASE_URL"] = "sqlite://"
 
 from apps.api.database import Base, engine  # noqa: E402
 from apps.api.main import app  # noqa: E402
@@ -18,7 +16,6 @@ def client() -> Generator[TestClient, None, None]:
     with TestClient(app) as test_client:
         yield test_client
     Base.metadata.drop_all(bind=engine)
-    TEST_DB.unlink(missing_ok=True)
 
 
 @pytest.fixture

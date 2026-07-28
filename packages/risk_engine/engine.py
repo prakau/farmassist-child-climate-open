@@ -14,7 +14,8 @@ DISCLAIMER = (
 @lru_cache
 def get_thresholds() -> dict[str, Any]:
     path = Path(__file__).with_name("thresholds.json")
-    return json.loads(path.read_text(encoding="utf-8"))
+    result: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
 
 
 def _level(value: float, moderate: float, high: float, *, reverse: bool = False) -> str:
@@ -25,9 +26,10 @@ def _level(value: float, moderate: float, high: float, *, reverse: bool = False)
 
 def assess_risk(observation: ObservationBase) -> RiskAssessment:
     config = get_thresholds()
-    heat = _level(observation.temperature_c, **{
-        "moderate": config["heat"]["moderate_c"], "high": config["heat"]["high_c"]
-    })
+    heat = _level(
+        observation.temperature_c,
+        **{"moderate": config["heat"]["moderate_c"], "high": config["heat"]["high_c"]},
+    )
     water = _level(
         observation.soil_moisture_pct,
         config["water"]["moderate_pct"],

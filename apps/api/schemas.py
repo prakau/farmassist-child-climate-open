@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import StrEnum
 from uuid import UUID, uuid4
 
@@ -26,7 +26,7 @@ class ObservationBase(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
     observation_id: UUID = Field(default_factory=uuid4)
-    timestamp_utc: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    timestamp_utc: datetime = Field(default_factory=lambda: datetime.now(UTC))
     site_code: str = Field(pattern=r"^[A-Z0-9][A-Z0-9-]{2,31}$")
     temperature_c: float = Field(ge=-30, le=65)
     relative_humidity_pct: float = Field(ge=0, le=100)
@@ -44,7 +44,7 @@ class ObservationBase(BaseModel):
     def require_timezone(cls, value: datetime) -> datetime:
         if value.tzinfo is None or value.utcoffset() is None:
             raise ValueError("timestamp_utc must include a UTC offset")
-        return value.astimezone(timezone.utc)
+        return value.astimezone(UTC)
 
     @field_validator("notes")
     @classmethod

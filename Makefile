@@ -2,6 +2,7 @@
 
 install:
 	python3.12 -m venv .venv
+	.venv/bin/python -m pip install --upgrade pip
 	.venv/bin/pip install -r requirements-dev.txt
 	cd apps/dashboard && npm install
 
@@ -13,7 +14,7 @@ test:
 	cd apps/dashboard && npm run build
 
 run:
-	@trap 'kill 0' INT TERM EXIT; .venv/bin/uvicorn apps.api.main:app --reload & cd apps/dashboard && npm run dev
+	@sh -c '.venv/bin/uvicorn apps.api.main:app --reload & api_pid=$$!; trap "kill $$api_pid" EXIT INT TERM; cd apps/dashboard && npm run dev'
 
 data:
 	.venv/bin/python scripts/generate_synthetic_data.py

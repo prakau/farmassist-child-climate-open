@@ -1,5 +1,6 @@
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from datetime import timezone
+from datetime import UTC
 from typing import Any
 
 from fastapi import Depends, FastAPI, HTTPException, Query, status
@@ -14,7 +15,7 @@ from packages.risk_engine import assess_risk, get_thresholds
 
 
 @asynccontextmanager
-async def lifespan(_: FastAPI):
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     create_tables()
     yield
 
@@ -35,6 +36,10 @@ app.add_middleware(
 
 def _read(record: ObservationRecord) -> ObservationRead:
     payload = {column.name: getattr(record, column.name) for column in record.__table__.columns}
+    if payload["timestamp_utc"].tzinfo is None:
+        payload["timestamp_utc"] = payload["timestamp_utc"].replace(tzinfo=UTC)
+    if payload["created_at"].tzinfo is None:
+        payload["created_at"] = payload["created_at"].replace(tzinfo=UTC)
     return ObservationRead.model_validate(payload)
 
 
@@ -111,8 +116,8 @@ def public_indicators(session: Session = Depends(get_session)) -> dict[str, Any]
     return {
         "valid_environmental_observations": count,
         "active_non_identifying_sites": sites,
-        "period_start_utc": first.replace(tzinfo=timezone.utc) if first else None,
-        "period_end_utc": last.replace(tzinfo=timezone.utc) if last else None,
+        "period_start_utc": first.replace(tzinfo=UTC) if first else None,
+        "period_end_utc": last.replace(tzinfo=UTC) if last else None,
         "privacy": "Aggregate environmental indicators only; no personal or child data.",
     }
 

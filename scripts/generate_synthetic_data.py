@@ -3,7 +3,7 @@ import csv
 import json
 import math
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
@@ -31,7 +31,7 @@ FIELDS = [
 
 def generate(output_dir: Path, *, seed: int = 2026) -> list[dict[str, object]]:
     rng = random.Random(seed)
-    start = datetime(2026, 4, 1, tzinfo=timezone.utc)
+    start = datetime(2026, 4, 1, tzinfo=UTC)
     rows: list[dict[str, object]] = []
     for site, scenario in SITES.items():
         for step in range(30 * 4):
@@ -48,7 +48,9 @@ def generate(output_dir: Path, *, seed: int = 2026) -> list[dict[str, object]]:
                 "timestamp_utc": timestamp.isoformat().replace("+00:00", "Z"),
                 "site_code": site,
                 "temperature_c": round(temperature, 1),
-                "relative_humidity_pct": round(max(25, min(95, 72 - 18 * daily + rng.uniform(-3, 3))), 1),
+                "relative_humidity_pct": round(
+                    max(25, min(95, 72 - 18 * daily + rng.uniform(-3, 3))), 1
+                ),
                 "soil_moisture_pct": round(max(8, min(75, moisture)), 1),
                 "crop_stage": "vegetative" if step < 60 else "flowering",
                 "crop_type": "demonstration crop",
