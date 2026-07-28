@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "FarmAssist Child Climate & Nutrition Intelligence"
+message: "Please cite this software using these metadata."
+type: software
+authors:
+  - family-names: Sharma
+    given-names: Meenakshi
+version: 0.1.0-alpha
+date-released: 2026-07-28
+license: MIT
+repository-code: "https://github.com/YOUR-USERNAME/farmassist-child-climate-open"
