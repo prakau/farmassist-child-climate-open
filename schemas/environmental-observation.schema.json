@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/farmassist/environmental-observation.schema.json",
+  "title": "Environmental observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["observation_id", "timestamp_utc", "site_code", "temperature_c", "relative_humidity_pct", "soil_moisture_pct", "crop_stage", "observation_source", "consent_status", "synchronization_status"],
+  "properties": {
+    "observation_id": {"type": "string", "format": "uuid"},
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "site_code": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]{2,31}$"},
+    "temperature_c": {"type": "number", "minimum": -30, "maximum": 65},
+    "relative_humidity_pct": {"type": "number", "minimum": 0, "maximum": 100},
+    "soil_moisture_pct": {"type": "number", "minimum": 0, "maximum": 100},
+    "crop_stage": {"type": "string", "minLength": 1, "maxLength": 50},
+    "crop_type": {"type": ["string", "null"]},
+    "observation_source": {"enum": ["mobile", "iot", "synthetic"]},
+    "consent_status": {"enum": ["not_required_synthetic", "obtained"]},
+    "synchronization_status": {"enum": ["local", "queued", "synchronized"]},
+    "approximate_region": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"], "maxLength": 280}
+  }
+}
