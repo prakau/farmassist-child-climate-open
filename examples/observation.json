@@ -1,0 +1,15 @@
+{
+  "observation_id": "00000000-0000-4000-8000-000000000101",
+  "timestamp_utc": "2026-04-01T06:00:00Z",
+  "site_code": "DEMO-001",
+  "temperature_c": 39,
+  "relative_humidity_pct": 82,
+  "soil_moisture_pct": 16,
+  "crop_stage": "vegetative",
+  "crop_type": "demonstration crop",
+  "observation_source": "synthetic",
+  "consent_status": "not_required_synthetic",
+  "synchronization_status": "local",
+  "approximate_region": "Synthetic demonstration region",
+  "notes": "SYNTHETIC DATA — example only"
+}
