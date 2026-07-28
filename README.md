@@ -1,5 +1,10 @@
 # FarmAssist Child Climate & Nutrition Intelligence
 
+[![CI](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/ci.yml/badge.svg)](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/ci.yml)
+[![Secret scan](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/secret-scan.yml)
+
+**Reviewer links:** [Live project brief](https://farmassist-climate-open.algalomics.chatgpt.site) · [Website source](https://github.com/prakau/farmassist-child-climate-open-website) · [Release notes](RELEASE_NOTES.md)
+
 > **FarmAssist Child Climate & Nutrition Intelligence is an early open-source reference implementation intended for supervised research and pilot deployment. It is not a medical device, emergency-warning system or substitute for qualified agronomic, safeguarding, nutrition or public-health advice.**
 
 An offline-first environmental monitoring reference platform designed to support school gardens, community nutrition gardens, and vulnerable smallholder settings. It records non-personal temperature, humidity, soil-moisture, and crop-stage observations; explains configurable risk thresholds locally; queues approved records while offline; and publishes aggregates only.

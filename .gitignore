@@ -11,3 +11,6 @@ node_modules/
 dist/
 .env
 .DS_Store
+
+# The public project website is maintained in its own repository.
+/website/
