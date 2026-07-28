@@ -1,0 +1,12 @@
+name: Safeguarding concern
+description: Do not submit sensitive concerns publicly.
+body:
+  - type: markdown
+    attributes: {value: "Stop. Do not describe an incident here. Email joitabioseedai@gmail.com using minimal non-identifying detail. If anyone faces immediate danger, use appropriate local emergency and safeguarding channels."}
+  - type: checkboxes
+    id: understood
+    attributes:
+      label: Confirmation
+      options:
+        - label: I will not submit personal or incident data in this public form.
+          required: true

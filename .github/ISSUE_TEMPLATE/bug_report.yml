@@ -1,0 +1,13 @@
+name: Bug report
+description: Report reproducible software behavior (never include personal data).
+body:
+  - type: markdown
+    attributes: {value: "Do not post child, farmer, contact, health, address, or exact-location data."}
+  - type: textarea
+    id: description
+    attributes: {label: Description}
+    validations: {required: true}
+  - type: textarea
+    id: reproduce
+    attributes: {label: Synthetic reproduction}
+    validations: {required: true}

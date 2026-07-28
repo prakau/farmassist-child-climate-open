@@ -1,0 +1,11 @@
+name: Feature request
+description: Propose a public-benefit improvement.
+body:
+  - type: textarea
+    id: need
+    attributes: {label: User need and expected public benefit}
+    validations: {required: true}
+  - type: textarea
+    id: safety
+    attributes: {label: Privacy, safeguarding, accessibility, and misuse considerations}
+    validations: {required: true}
