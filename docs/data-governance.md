@@ -1,0 +1,3 @@
+# Data governance
+
+Purpose limitation, minimization, synthetic-first development, least privilege, short documented retention, traceable changes, and aggregate-only publication govern this project. Prohibited fields include names, health records, biometrics, phone numbers, exact addresses/coordinates, and identity mappings. A real pilot needs a lawful/ethical basis review, informed consent, institutional approval, safeguarding and minimization assessments, role-based access, encryption, deletion workflows, incident procedures, and accountable agronomic/implementation partners. Data-subject requests and cross-border/storage decisions must be defined locally before collection.
