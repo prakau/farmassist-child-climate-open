@@ -28,7 +28,7 @@ The browser sequence records these observable states:
 5. connectivity restored with one approved record pending; and
 6. successful synchronization to the locally running FastAPI endpoint, returning the queue to zero.
 
-The public GitHub Pages demonstration uses the same interface but simulates the final acknowledgement locally and states that no record is transmitted. This keeps the public demonstration non-personal and server-free. The repository's local run path exercises the real `POST /v1/observations` endpoint.
+The [public GitHub Pages demonstration](https://prakau.github.io/farmassist-child-climate-open/) uses the same interface but simulates the final acknowledgement locally and states that no record is transmitted. This keeps the public demonstration non-personal and server-free. The repository's local run path exercises the real `POST /v1/observations` endpoint.
 
 ## OpenAPI screenshot
 

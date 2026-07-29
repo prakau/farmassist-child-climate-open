@@ -3,7 +3,7 @@
 [![CI](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/ci.yml/badge.svg)](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/ci.yml)
 [![Secret scan](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/prakau/farmassist-child-climate-open/actions/workflows/secret-scan.yml)
 
-**Reviewer links:** [Live project brief](https://farmassist-climate-open.algalomics.chatgpt.site) · [Website source](https://github.com/prakau/farmassist-child-climate-open-website) · [Release notes](RELEASE_NOTES.md)
+**Reviewer links:** [Launch the public synthetic demo](https://prakau.github.io/farmassist-child-climate-open/) · [Live project brief](https://farmassist-climate-open.algalomics.chatgpt.site) · [Website source](https://github.com/prakau/farmassist-child-climate-open-website) · [Release notes](RELEASE_NOTES.md)
 
 > **FarmAssist Child Climate & Nutrition Intelligence is an early open-source reference implementation intended for supervised research and pilot deployment. It is not a medical device, emergency-warning system or substitute for qualified agronomic, safeguarding, nutrition or public-health advice.**
 
@@ -57,6 +57,8 @@ The installable PWA caches its shell. Approved synthetic observations are stored
 ## Demonstration
 
 Run `python scripts/generate_synthetic_data.py` to regenerate 360 clearly labelled records across `DEMO-001`, `DEMO-002`, and `DEMO-003`.
+
+**[Launch the browser-based public demonstration](https://prakau.github.io/farmassist-child-climate-open/).** It operates entirely with synthetic values. Its final synchronization acknowledgement is simulated locally and transmits no record; run the repository locally to exercise the FastAPI ingestion endpoint.
 
 ![FarmAssist synthetic demonstration dashboard](docs/assets/dashboard-synthetic-demo.jpg)
 
