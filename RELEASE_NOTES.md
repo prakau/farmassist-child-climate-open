@@ -2,6 +2,8 @@
 
 FarmAssist Child Climate & Nutrition Intelligence is an early, open-source, offline-first reference prototype.
 
+The release includes public prototype evidence: an authentic dashboard capture, FastAPI OpenAPI capture, and a 36-second offline assessment and synchronization demonstration. These assets use synthetic observations and prove software behavior only.
+
 ## Included
 
 - Strict non-personal environmental observation schema

@@ -56,7 +56,14 @@ The installable PWA caches its shell. Approved synthetic observations are stored
 
 ## Demonstration
 
-Run `python scripts/generate_synthetic_data.py` to regenerate 360 clearly labelled records across `DEMO-001`, `DEMO-002`, and `DEMO-003`. Dashboard screenshot and offline/synchronization recordings are intentionally marked as pending release assets.
+Run `python scripts/generate_synthetic_data.py` to regenerate 360 clearly labelled records across `DEMO-001`, `DEMO-002`, and `DEMO-003`.
+
+![FarmAssist synthetic demonstration dashboard](docs/assets/dashboard-synthetic-demo.jpg)
+
+- [Watch the 36-second offline assessment and synchronization demonstration](docs/assets/offline-risk-sync-demo.mp4).
+- [Inspect the FastAPI OpenAPI screenshot](docs/assets/api-openapi-docs.jpg).
+- Read the [prototype-evidence notes](docs/prototype-evidence.md) for capture provenance and limitations.
+- Read [Prototype and field-work evidence](PILOT_EVIDENCE.md) for a strict separation between completed JOITA work and proposed future validation.
 
 ## Repository map
 
